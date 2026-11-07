@@ -6,12 +6,13 @@
   <title>Coscolin House of Design | Exclusive Collection</title>
   <style>
     :root {
-      --bg-color: #fcfbfa;
-      --card-bg: #ffffff;
-      --text-main: #1f1f1f;
-      --text-muted: #666666;
-      --accent-color: #2b2b2b;
-      --border-color: #eaeaea;
+      --bg-color: #0d0d0d;
+      --card-bg: #141414;
+      --card-border: #262626;
+      --text-main: #f5f5f7;
+      --text-muted: #a1a1a6;
+      --accent-gold: #d4af37;
+      --banner-bg: #000000;
     }
 
     * {
@@ -24,34 +25,86 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      padding: 2rem 1rem;
+      padding-bottom: 4rem;
       line-height: 1.5;
+    }
+
+    /* Brand Header with Custom Script Logo */
+    header.brand-header {
+      background-color: var(--banner-bg);
+      border-bottom: 1px solid var(--card-border);
+      padding: 2.5rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .brand-logo-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .brand-logo-svg {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .brand-tagline {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 1rem;
     }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
+      padding: 0 1rem;
     }
 
-    header {
+    /* Signature Section (Terra Mare) */
+    .signature-section {
+      background: linear-gradient(145deg, #181818, #0f0f0f);
+      border: 1px solid var(--accent-gold);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .signature-header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
-    header h1 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+    .signature-badge {
+      display: inline-block;
+      color: var(--accent-gold);
+      font-size: 0.75rem;
       text-transform: uppercase;
+      letter-spacing: 0.2em;
+      border: 1px solid var(--accent-gold);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
       margin-bottom: 0.5rem;
     }
 
-    header p {
-      color: var(--text-muted);
-      font-size: 1rem;
+    .signature-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
     }
 
-    /* Filter Controls Styling */
+    .signature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Catalog Filter Buttons */
     .filter-container {
       display: flex;
       justify-content: center;
@@ -62,14 +115,15 @@
 
     .filter-btn {
       background-color: transparent;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--card-border);
       color: var(--text-muted);
-      padding: 0.5rem 1.25rem;
-      border-radius: 20px;
-      font-size: 0.875rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
       font-weight: 500;
+      letter-spacing: 0.05em;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
 
     .filter-btn:hover {
@@ -78,9 +132,10 @@
     }
 
     .filter-btn.active {
-      background-color: var(--accent-color);
-      color: #ffffff;
-      border-color: var(--accent-color);
+      background-color: var(--text-main);
+      color: #000000;
+      border-color: var(--text-main);
+      font-weight: 600;
     }
 
     /* Product Grid Layout */
@@ -90,13 +145,13 @@
       gap: 2rem;
     }
 
-    /* Product Card */
+    /* Product Cards */
     .product-card {
       background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
       overflow: hidden;
-      transition: transform 0.2s ease, opacity 0.3s ease;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
     .product-card.hidden {
@@ -104,15 +159,16 @@
     }
 
     .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transform: translateY(-5px);
+      border-color: #3a3a3c;
     }
 
     .image-wrapper {
       width: 100%;
       height: 320px;
-      background-color: #f4f4f4;
+      background-color: #1a1a1a;
       overflow: hidden;
+      position: relative;
     }
 
     .image-wrapper img {
@@ -120,6 +176,11 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .image-wrapper img {
+      transform: scale(1.04);
     }
 
     .product-info {
@@ -127,96 +188,173 @@
     }
 
     .product-category {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 0.25rem;
+      letter-spacing: 0.15em;
+      color: var(--accent-gold);
+      margin-bottom: 0.3rem;
     }
 
     .product-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
     }
 
     .product-price {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--accent-color);
+      font-size: 0.95rem;
+      color: var(--text-muted);
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <h1>Coscolin House of Design</h1>
-      <p>Custom Bags, Charms & Fine Jewelry Collection</p>
-    </header>
+  <!-- Brand Script Header -->
+  <header class="brand-header">
+    <div class="brand-logo-container">
+      <svg class="brand-logo-svg" viewBox="0 0 500 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="50%" y="70" text-anchor="middle" fill="#FFFFFF" font-family="'Brush Script MT', 'Great Vibes', 'Playfair Display', cursive, serif" font-size="78" font-style="italic">Coscolin</text>
+        <text x="50%" y="115" text-anchor="middle" fill="#FFFFFF" font-family="'Georgia', serif" font-size="24" font-style="italic" letter-spacing="3">House of Design</text>
+      </svg>
+      <div class="brand-tagline">Handcrafted Bags, Charms & Fine Jewelry</div>
+    </div>
+  </header>
 
-    <!-- Category Filter Buttons -->
+  <div class="container">
+
+    <!-- Primary Signature Showcase: Terra Mare -->
+    <section class="signature-section">
+      <div class="signature-header">
+        <span class="signature-badge">Signature Primary Collection</span>
+        <h2 class="signature-title">Terra Mare Tote Series</h2>
+      </div>
+      <div class="signature-grid">
+
+        <article class="product-card" data-category="bags">
+          <div class="image-wrapper">
+            <img src="Terra Mare Blue.png" alt="Terra Mare Blue Signature Tote" loading="lazy" onerror="this.onerror=null; this.src='Terra Mare Blue.PNG';" />
+          </div>
+          <div class="product-info">
+            <div class="product-category">Primary Tote</div>
+            <h3 class="product-title">Terra Mare Blue Tote</h3>
+            <div class="product-price">Signature Edition</div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="bags">
+          <div class="image-wrapper">
+            <img src="Mare Terra.png" alt="Mare Terra Artisanal Tote" loading="lazy" onerror="this.onerror=null; this.src='Mare Terra.PNG';" />
+          </div>
+          <div class="product-info">
+            <div class="product-category">Primary Tote</div>
+            <h3 class="product-title">Mare Terra Edition</h3>
+            <div class="product-price">Signature Edition</div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="bags">
+          <div class="image-wrapper">
+            <img src="The Patch ToteBag.PNG" alt="The Patch Tote Bag" loading="lazy" onerror="this.onerror=null; this.src='The Patch ToteBag.png';" />
+          </div>
+          <div class="product-info">
+            <div class="product-category">Primary Tote</div>
+            <h3 class="product-title">The Patch Tote Bag</h3>
+            <div class="product-price">Signature Edition</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Catalog Filter Controls -->
     <nav class="filter-container">
       <button class="filter-btn active" data-filter="all">All Items</button>
-      <button class="filter-btn" data-filter="bags">Bags</button>
-      <button class="filter-btn" data-filter="charms">Charms</button>
-      <button class="filter-btn" data-filter="jewelry">Jewelry</button>
+      <button class="filter-btn" data-filter="bags">Bags & Totes</button>
+      <button class="filter-btn" data-filter="charms">Bag Charms</button>
+      <button class="filter-btn" data-filter="jewelry">Fine Jewelry</button>
+      <button class="filter-btn" data-filter="atelier">Atelier Showcase</button>
     </nav>
 
+    <!-- Full Product Catalog Grid -->
     <main class="catalog-grid">
 
-      <!-- Item 1: Bags -->
+      <!-- Flower Pouchy -->
       <article class="product-card" data-category="bags">
         <div class="image-wrapper">
-          <img src="/images/bag1.jpg" alt="Signature Custom Tote Bag" loading="lazy" />
+          <img src="Flower Pouchy.png" alt="Flower Pouchy Handbag" loading="lazy" onerror="this.onerror=null; this.src='Flower Pouchy.PNG';" />
         </div>
         <div class="product-info">
-          <div class="product-category">Bags</div>
-          <h2 class="product-title">Signature Custom Tote</h2>
-          <div class="product-price">RM 450.00</div>
+          <div class="product-category">Handbag</div>
+          <h3 class="product-title">Flower Pouchy</h3>
+          <div class="product-price">Handcrafted Collection</div>
         </div>
       </article>
 
-      <!-- Item 2: Charms -->
-      <article class="product-card" data-category="charms">
-        <div class="image-wrapper">
-          <img src="/images/charm1.jpg" alt="Handcrafted Leather Bag Charm" loading="lazy" />
-        </div>
-        <div class="product-info">
-          <div class="product-category">Charms</div>
-          <h2 class="product-title">Handcrafted Bag Charm</h2>
-          <div class="product-price">RM 120.00</div>
-        </div>
-      </article>
-
-      <!-- Item 3: Jewelry -->
+      <!-- Jewelry & Charm Model 1 -->
       <article class="product-card" data-category="jewelry">
         <div class="image-wrapper">
-          <img src="/images/jewelry1.jpg" alt="Artisanal Pendant Necklace" loading="lazy" />
+          <img src="C7C14FF0-4BD7-4CBB-B6C9-163DB3A96B92.jpg" alt="Fine Jewelry & Charm Model" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Jewelry & Accessories</div>
+          <h3 class="product-title">Artisanal Jewelry Accent</h3>
+          <div class="product-price">Bespoke Piece</div>
+        </div>
+      </article>
+
+      <!-- Jewelry & Charm Model 2 -->
+      <article class="product-card" data-category="jewelry">
+        <div class="image-wrapper">
+          <img src="70161D89-374F-405A-A611-6FC8411621BE.jpg" alt="Model Showcase Fine Jewelry" loading="lazy" />
         </div>
         <div class="product-info">
           <div class="product-category">Jewelry</div>
-          <h2 class="product-title">Artisanal Pendant Necklace</h2>
-          <div class="product-price">RM 280.00</div>
+          <h3 class="product-title">Statement Pendant & Chain</h3>
+          <div class="product-price">Exclusive Design</div>
         </div>
       </article>
 
-      <!-- Item 4: Bags -->
-      <article class="product-card" data-category="bags">
+      <!-- Charm Showcase -->
+      <article class="product-card" data-category="charms">
         <div class="image-wrapper">
-          <img src="/images/bag2.jpg" alt="Structured Atelier Handbag" loading="lazy" />
+          <img src="C2F5F53B-9583-4488-814A-38BE3BED084D.jpg" alt="Handmade Bag Charm" loading="lazy" />
         </div>
         <div class="product-info">
-          <div class="product-category">Bags</div>
-          <h2 class="product-title">Structured Atelier Handbag</h2>
-          <div class="product-price">RM 680.00</div>
+          <div class="product-category">Charms</div>
+          <h3 class="product-title">Handcrafted Bag Charm</h3>
+          <div class="product-price">Custom Charm</div>
+        </div>
+      </article>
+
+      <!-- AI Atelier Design Showcase -->
+      <article class="product-card" data-category="atelier">
+        <div class="image-wrapper">
+          <img src="My Creations with AI.png" alt="My Creations with AI Showcase" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Atelier Concept</div>
+          <h3 class="product-title">AI Design Concepts</h3>
+          <div class="product-price">Coscolin House Showcase</div>
+        </div>
+      </article>
+
+      <!-- Additional Design Asset -->
+      <article class="product-card" data-category="atelier">
+        <div class="image-wrapper">
+          <img src="Various products.png" alt="Coscolin Various Products Showcase" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Atelier Concept</div>
+          <h3 class="product-title">Various Custom Products</h3>
+          <div class="product-price">Collection Overview</div>
         </div>
       </article>
 
     </main>
   </div>
 
-  <!-- Interactive JavaScript Filter Script -->
+  <!-- Interactive JavaScript Category Filter -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const filterButtons = document.querySelectorAll(".filter-btn");
@@ -224,13 +362,11 @@
 
       filterButtons.forEach(button => {
         button.addEventListener("click", () => {
-          // Remove active state from all buttons and add to clicked button
           filterButtons.forEach(btn => btn.classList.remove("active"));
           button.classList.add("active");
 
           const filterValue = button.getAttribute("data-filter");
 
-          // Show or hide product cards based on category matching
           productCards.forEach(card => {
             const cardCategory = card.getAttribute("data-category");
             if (filterValue === "all" || filterValue === cardCategory) {
