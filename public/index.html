@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coscolin House of Design</title>
+  <style>
+    :root {
+      --bg-color: #0d0d0d;
+      --card-bg: #141414;
+      --card-border: #262626;
+      --text-main: #f5f5f7;
+      --text-muted: #a1a1a6;
+      --banner-bg: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      padding-bottom: 4rem;
+      line-height: 1.5;
+    }
+
+    header.brand-header {
+      background-color: var(--banner-bg);
+      border-bottom: 1px solid var(--card-border);
+      padding: 2.5rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .brand-logo-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .brand-logo-svg {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .showcase-section {
+      background: #111111;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .showcase-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .showcase-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 1.5rem;
+    }
+
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      background-color: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.6rem 1.4rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn:focus-visible {
+      outline: 2px solid var(--text-main);
+      outline-offset: 4px;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--text-main);
+      color: var(--text-main);
+    }
+
+    .filter-btn.active {
+      background-color: var(--text-main);
+      color: #000000;
+      border-color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .showcase-section.hidden,
+    .product-card.hidden {
+      display: none;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .image-wrapper {
+      width: 100%;
+      height: 340px;
+      background-color: #1a1a1a;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-wrapper > a { display: block; width: 100%; height: 100%; }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-info {
+      padding: 1.25rem;
+    }
+
+    .product-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .showcase-subtitle {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 0.35rem;
+    }
+
+    .showcase-grid .image-wrapper { height: auto; }
+    .showcase-grid .image-wrapper img { height: auto; object-fit: contain; }
+
+    .feature-card:hover {
+      transform: none;
+    }
+
+    .image-wrapper--poster {
+      height: auto;
+    }
+
+    .image-wrapper--poster img {
+      height: auto;
+      object-fit: contain;
+    }
+
+    .product-desc {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    .campaign { max-width: 1600px; margin: 0 auto 4rem; padding: 0 1rem; }
+    .campaign-image { display: block; width: 100%; height: auto; }
+    .campaign-copy { display: flex; align-items: end; justify-content: space-between; gap: 2rem; padding: 1.8rem 0; border-bottom: 1px solid #464139; }
+    .campaign-kicker { color: #c3b49a; font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; margin-bottom: .7rem; }
+    .campaign h1 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.1; }
+    .campaign-summary { max-width: 310px; color: #bab7b0; font-size: .95rem; }
+    .campaign-link { display: inline-block; color: #f1e7d6; text-underline-offset: 6px; margin-top: 1rem; padding: .3rem 0; }
+    .campaign-link:focus-visible { outline: 2px solid #c3b49a; outline-offset: 5px; }
+    .collection-heading { font-family: Georgia, serif; font-weight: 400; font-size: 2rem; margin-bottom: 1.5rem; }
+    @media (max-width: 600px) {
+      header.brand-header { padding: 1rem; margin-bottom: 1rem; }
+      .campaign-copy { display: block; }
+      .campaign-summary { margin-top: 1rem; max-width: none; }
+      .showcase-section { padding: 1rem; }
+    }
+
+    :root { --bg-color:#f5f1e9; --card-bg:#faf8f3; --card-border:#d8d2c5; --text-main:#292f28; --text-muted:#65695d; --banner-bg:#fff; }
+    body {font-family:Georgia,serif; padding-bottom:0;}
+    button,input,.product-desc,.shop-nav,.price-note,.small-note,.campaign-summary {font-family:Verdana,sans-serif;}
+    button,a,input {touch-action:manipulation;} button {cursor:pointer;}
+    button:focus-visible,a:focus-visible,input:focus-visible {outline:2px solid #626d45;outline-offset:4px;}
+    header.brand-header {display:flex;justify-content:space-between;align-items:center;padding:1rem 4vw;margin:0 auto 2rem;gap:1rem;}
+    .brand-logo-container {margin:0;max-width:250px;display:block;} .brand-logo-svg {max-width:250px;}
+    .shop-nav {display:flex;gap:1.5rem;align-items:center;font-size:.8rem;} .shop-nav a {color:inherit;text-underline-offset:5px;}
+    .shop-nav button {background:transparent;border:1px solid var(--card-border);padding:.8rem 1rem;color:inherit;} #bag-count {margin-left:.5rem;}
+    .hero-layout {display:grid;grid-template-columns:1fr 1fr;background:#e7e2d6;align-items:center;}
+    .hero-intro {padding:clamp(1.5rem,5vw,5rem);} .hero-intro h1 {font-size:clamp(2.8rem,5vw,5.8rem);letter-spacing:-.04em;margin-bottom:1.5rem;}
+    .hero-intro>p:not(.campaign-kicker) {max-width:340px;color:#565b4d;} .hero-price {font-size:1.5rem;margin:1.3rem 0;}
+    .campaign-image {max-height:820px;object-fit:contain;} .campaign-kicker {color:#747b5a;} .campaign-summary {color:var(--text-muted);} .campaign-link {color:#414e35;margin:1rem 0;}.hero-intro .campaign-link {display:block;}
+    .campaign-copy h2 {font-size:2.4rem;font-weight:400;} .campaign-copy {border-color:var(--card-border);}
+    .price-note {text-align:center;font-size:.75rem;color:var(--text-muted);margin:-1rem 0 2rem;}
+    .product-card {border-radius:0;} .image-wrapper {height:380px;background:#eae6de;}.image-wrapper img {object-fit:cover;}.product-card[data-category="bags"] .image-wrapper img,.product-card[data-category="charms"] .image-wrapper img {object-fit:contain;}
+    .product-title {font-size:1.15rem;}.product-desc {min-height:42px;font-size:.75rem;margin:.5rem 0 1rem;}.product-buy {display:flex;align-items:center;justify-content:space-between;gap:1rem;}.price {white-space:nowrap;font-size:1.1rem;}
+    .add-btn {background:#394631;color:#fff;border:0;padding:.85rem 1.1rem;font-size:.75rem;}.add-btn:hover {background:#556249;}.add-btn:disabled {opacity:.55;cursor:wait;}
+    .editorial {margin:6rem 0;display:grid;grid-template-columns:.8fr 1fr 1fr;gap:1.5rem;align-items:center;}.editorial h2,.archive h2 {font-size:clamp(2rem,3vw,3.5rem);line-height:1.1;font-weight:400;margin-bottom:1rem;}.editorial p {color:var(--text-muted);}.editorial img {width:100%;height:490px;object-fit:cover;}.archive img {width:100%;margin-top:1rem;} .archive {margin-bottom:4rem;}
+    footer {padding:2rem 4vw;border-top:1px solid var(--card-border);display:flex;justify-content:space-between;gap:1rem;}footer span {font-size:.8rem;color:var(--text-muted);}
+    dialog {position:fixed;inset:0;margin:auto 0 auto auto;width:min(470px,100%);max-width:100%;height:100dvh;max-height:100dvh;background:var(--bg-color);color:var(--text-main);border:0;padding:1.5rem;overflow-y:auto;} dialog::backdrop {background:#20271d88;}.panel-head {display:flex;justify-content:space-between;align-items:center;gap:1rem;border-bottom:1px solid var(--card-border);padding-bottom:1rem;margin-bottom:1rem;}.panel-head h2 {font-size:1.6rem;font-weight:400;}.panel-head button {font-size:2rem;background:none;border:0;color:inherit;}.bag-row {display:grid;grid-template-columns:70px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--card-border);}.bag-row img {width:70px;height:100px;object-fit:cover;}.quantity {display:flex;align-items:center;gap:.8rem;margin-top:.5rem;}.quantity button {border:1px solid var(--card-border);background:transparent;padding:.3rem .6rem;color:inherit;}.bag-total {display:flex;justify-content:space-between;margin:2rem 0 1rem;}.small-note {color:var(--text-muted);font-size:.75rem;margin:1rem 0;}#bag-status {font-size:.9rem;color:#82412c;margin:1rem 0;}
+    .chat-launcher {position:fixed;bottom:1.3rem;right:1.3rem;background:#394631;color:white;border:1px solid #68755e;padding:1rem 1.3rem;box-shadow:0 5px 20px #2223;z-index:3;}.chat-launcher span {margin-left:1rem;}#chat-dialog {height:min(680px,100dvh);margin:auto 1rem 1rem auto;display:none;}#chat-dialog[open] {display:flex;flex-direction:column;}#messages {flex:1;overflow:auto;padding:.5rem 0;}.message {padding:1rem;background:#e7e3d9;margin-bottom:.8rem;white-space:pre-wrap;font-size:.95rem;}.message.user {background:#dbe1d2;margin-left:2rem;}#chat-form label {font-size:.8rem;display:block;margin-bottom:.5rem;}.chat-entry {display:flex;gap:.5rem;}.chat-entry input {min-width:0;flex:1;padding:.8rem;border:1px solid var(--card-border);background:#fff;}
+    @media(max-width:700px){header.brand-header {padding:1rem;}.brand-logo-container {max-width:155px;}.shop-nav {gap:.6rem;}.shop-nav a {display:none;}.hero-layout {grid-template-columns:1fr;}.hero-intro {padding:2rem;}.campaign-image {max-height:620px;}.campaign-copy h2 {font-size:2rem;}.editorial {grid-template-columns:1fr 1fr;gap:.75rem;}.editorial>div {grid-column:1/-1;}.editorial img {height:340px;}.catalog-grid {gap:1.2rem;}.image-wrapper {height:420px;}footer {display:block;}footer span {display:block;margin-top:.5rem;}#chat-dialog {margin:auto 0 0 auto;}}
+    @media(prefers-reduced-motion:reduce){* {transition:none!important;scroll-behavior:auto!important;}}
+  </style>
+</head>
+<body>
+
+  <!-- Brand Script Header -->
+  <header class="brand-header">
+    <a href="/" class="brand-logo-container" aria-label="Coscolin home"><img class="brand-logo-svg" src="/images/coscolin-logo.png" width="900" height="308" alt="Coscolin House of Design"></a>
+    <nav class="shop-nav" aria-label="Main navigation"><a href="#collections">Shop collection</a><button id="open-bag" type="button">Shopping bag <span id="bag-count">0</span></button></nav>
+  </header>
+
+
+  <section class="campaign" aria-labelledby="campaign-title">
+    <div class="hero-layout"><div class="hero-intro"><p class="campaign-kicker">The everyday, with character</p><h1 id="campaign-title">A little sea.<br>A little city.<br>All your own.</h1><p>Meet Terra Mare. Denim, rope handles, and room for the things that matter.</p><p class="hero-price">RM 245</p><button class="add-btn" data-add="terra">Add Terra Mare to bag</button><a class="campaign-link" href="#collections">Shop the collection &darr;</a></div><img class="campaign-image" src="/images/terra-mare-blue-tote.png" width="1024" height="1536" fetchpriority="high" alt="Woman carrying the Terra Mare denim tote outdoors in daylight"></div>
+    <div class="campaign-copy">
+      <div><p class="campaign-kicker">Coscolin · House of Design</p><h2>Carry a little character.</h2></div>
+      <div class="campaign-summary"><p>Bags, braided jewelry, and charms. Details that make the everyday your own.</p><a class="campaign-link" href="#collections">Explore the collection &darr;</a></div>
+    </div>
+  </section>
+
+  <div class="container" id="collections">
+
+    <!-- Filter Buttons -->
+    <nav class="filter-container" aria-label="Filter collections">
+      <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All Items</button>
+      <button type="button" class="filter-btn" data-filter="bags" aria-pressed="false">Bags &amp; Totes</button>
+      <button type="button" class="filter-btn" data-filter="charms" aria-pressed="false">Bag Charms</button>
+      <button type="button" class="filter-btn" data-filter="jewelry" aria-pressed="false">Jewelry</button>
+    </nav>
+
+    <p class="price-note">Bag charms from RM 48 · Jewelry up to RM 125 · Bags up to RM 250</p>
+    <main class="catalog-grid" id="catalog" aria-label="Coscolin catalog"></main>
+    <section class="editorial" aria-labelledby="style-title"><div><p class="campaign-kicker">Worn your way</p><h2 id="style-title">Small details.<br>Personal stories.</h2><p>Clip a charm at the waist. Take an olive utility bag into the city. Make each piece part of your day.</p><a href="#collections" class="campaign-link">Find your everyday piece &uarr;</a></div><img src="/images/lady-charm.jpg" loading="lazy" alt="Woman wearing the black and white braided waist charm in a sunlit studio"><img src="/images/military-bag.jpg" loading="lazy" alt="Man carrying an olive military utility bag beside a geometric wall in daylight"></section>
+    <section class="archive"><p class="campaign-kicker">The Coscolin edit</p><h2>Good company. Better details.</h2><img src="/images/coscolin-hero.jpg" width="2200" height="1024" loading="lazy" alt="The original Coscolin campaign with friends wearing charms, bags and braided bracelets"></section>
+  </div>
+  <footer>Coscolin · House of Design <span>Prices in Malaysian Ringgit (MYR).</span></footer>
+  <dialog id="bag-dialog" aria-labelledby="bag-title"><div class="panel-head"><h2 id="bag-title">Your shopping bag</h2><button data-close="bag-dialog" aria-label="Close shopping bag">&times;</button></div><div id="bag-items"></div><p id="bag-status" role="status"></p><div class="bag-total">Subtotal <strong id="bag-total">RM 0</strong></div><p class="small-note">Your selection is saved in this browser’s bag. Online payment is not available yet.</p><button class="add-btn" data-close="bag-dialog">Continue shopping</button></dialog>
+  <button id="open-chat" class="chat-launcher" aria-controls="chat-dialog">Ask Coscolin <span>+</span></button>
+  <dialog id="chat-dialog" aria-labelledby="chat-title"><div class="panel-head"><div><p class="campaign-kicker">Your styling companion</p><h2 id="chat-title">Ask Coscolin</h2></div><button data-close="chat-dialog" aria-label="Close assistant">&times;</button></div><div id="messages" role="log" aria-live="polite"><p class="message assistant">Looking for a bag, a charm, or a gift? Tell me your style and budget in RM.</p></div><form id="chat-form"><label for="chat-input">Your message</label><div class="chat-entry"><input id="chat-input" maxlength="1200" required placeholder="A gift under RM 100…"><button class="add-btn" type="submit">Send</button></div></form></dialog>
+  <script type="module" src="/shop.mjs"></script>
+</body>
+</html>
