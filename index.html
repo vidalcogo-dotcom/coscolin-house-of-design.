@@ -76,7 +76,7 @@
 
     .showcase-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 1.5rem;
     }
 
@@ -100,6 +100,11 @@
       transition: all 0.25s ease;
     }
 
+    .filter-btn:focus-visible {
+      outline: 2px solid var(--text-main);
+      outline-offset: 4px;
+    }
+
     .filter-btn:hover {
       border-color: var(--text-main);
       color: var(--text-main);
@@ -114,7 +119,7 @@
 
     .catalog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
       gap: 2rem;
     }
 
@@ -126,6 +131,7 @@
       transition: transform 0.3s ease;
     }
 
+    .showcase-section.hidden,
     .product-card.hidden {
       display: none;
     }
@@ -136,13 +142,15 @@
 
     .image-wrapper {
       width: 100%;
-      aspect-ratio: 4 / 5;
+      height: 340px;
       background-color: #1a1a1a;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
+    .image-wrapper > a { display: block; width: 100%; height: 100%; }
 
     .image-wrapper img {
       width: 100%;
@@ -169,17 +177,15 @@
       margin-top: 0.35rem;
     }
 
-    .showcase-feature {
-      max-width: 700px;
-      margin: 0 auto;
-    }
+    .showcase-grid .image-wrapper { height: auto; }
+    .showcase-grid .image-wrapper img { height: auto; object-fit: contain; }
 
     .feature-card:hover {
       transform: none;
     }
 
     .image-wrapper--poster {
-      aspect-ratio: auto;
+      height: auto;
     }
 
     .image-wrapper--poster img {
@@ -236,13 +242,21 @@
 
   <div class="container" id="collections">
 
+    <!-- Filter Buttons -->
+    <nav class="filter-container" aria-label="Filter collections">
+      <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All Items</button>
+      <button type="button" class="filter-btn" data-filter="bags" aria-pressed="false">Bags &amp; Totes</button>
+      <button type="button" class="filter-btn" data-filter="charms" aria-pressed="false">Bag Charms</button>
+      <button type="button" class="filter-btn" data-filter="jewelry" aria-pressed="false">Jewelry</button>
+    </nav>
+
     <!-- Terra Mare Showcase Section -->
-    <section class="showcase-section">
+    <section class="showcase-section" aria-labelledby="terra-mare-title">
       <div class="showcase-header">
-        <h2 class="showcase-title">Terra Mare Collection</h2>
+        <h2 class="showcase-title" id="terra-mare-title">Bags &amp; Totes</h2>
         <p class="showcase-subtitle">Made to carry what matters.</p>
       </div>
-      <div class="showcase-feature">
+      <div class="showcase-grid">
         <article class="product-card feature-card" data-category="bags">
           <div class="image-wrapper image-wrapper--poster">
             <img src="/.netlify/images?url=/images/terra-mare-blue-tote.png&w=1000"
@@ -257,22 +271,29 @@
             <p class="product-desc">Lightweight and durable &middot; Timeless design &middot; Unisex &middot; Machine washable</p>
           </div>
         </article>
+        <article class="product-card" data-category="bags">
+          <div class="image-wrapper image-wrapper--poster">
+            <img src="/images/valencia-bags.png" width="1024" height="1536" loading="lazy" alt="Valencia bag collection: vertical indigo tote, floral embroidered tote, red Graphic X tote, and patterned ethnic band tote.">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Valencia Market Collection</h3>
+            <p class="product-desc">Indigo, floral embroidery, graphic panels, and patterned bands.</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="showcase-section" aria-labelledby="valencia-title">
-      <h2 class="collection-heading" id="valencia-title">Valencia Market Collection</h2>
-      <div class="showcase-feature"><img class="campaign-image" src="/images/valencia-bags.png" width="1024" height="1536" loading="lazy" alt="Valencia bag collection: vertical indigo tote, floral embroidered tote, red Graphic X tote, and patterned ethnic band tote."></div>
-    </section>
-
-    <!-- Filter Buttons -->
-    <nav class="filter-container">
-      <button class="filter-btn active" data-filter="all">All Items</button>
-      <button class="filter-btn" data-filter="jewelry">Jewelry</button>
-    </nav>
-
     <!-- Catalog Grid -->
-    <main class="catalog-grid">
+    <main class="catalog-grid" aria-label="Coscolin catalog">
+      <article class="product-card" data-category="charms">
+        <div class="image-wrapper">
+          <a href="/images/people-and-charms.png" aria-label="View the full bag charm collection photo">
+            <img src="/images/people-and-charms.png" width="1536" height="1024" alt="Four friends showing braided bag charms on totes, a jacket, and a belt loop" loading="lazy">
+          </a>
+        </div>
+        <div class="product-info"><h3 class="product-title">Bag Charm Collection</h3><p class="product-desc">Braided cords, beads, and personal details. Select the photo to see it in full.</p></div>
+      </article>
+
 
       <article class="product-card" data-category="jewelry">
         <div class="image-wrapper">
@@ -314,8 +335,12 @@
 
       filterButtons.forEach(button => {
         button.addEventListener("click", () => {
-          filterButtons.forEach(btn => btn.classList.remove("active"));
+          filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+            btn.setAttribute("aria-pressed", "false");
+          });
           button.classList.add("active");
+          button.setAttribute("aria-pressed", "true");
 
           const filterValue = button.getAttribute("data-filter");
 
@@ -326,6 +351,10 @@
             } else {
               card.classList.add("hidden");
             }
+          });
+          document.querySelectorAll(".showcase-section").forEach(section => {
+            const visibleCards = section.querySelectorAll(".product-card:not(.hidden)");
+            section.classList.toggle("hidden", visibleCards.length === 0);
           });
         });
       });
