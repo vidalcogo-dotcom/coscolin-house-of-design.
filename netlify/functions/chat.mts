@@ -18,7 +18,7 @@ export default async (req: Request) => {
    const suggestions=products.filter(p=>(!category||p.category===category)&&p.price<=budget).sort((a,b)=>a.price-b.price).slice(0,3);
    const reply=suggestions.length
     ? `Preview mode — live AI is not connected yet. Here are a few catalog picks${Number.isFinite(budget)?` within RM ${budget}`:''}:\n\n${suggestions.map(p=>`${p.name} — RM ${p.price}. ${p.description}`).join('\n\n')}\n\nUse Add to bag on any product to save your selection.`
-    : 'Preview mode — live AI is not connected yet. No catalog items match that category and budget. Charms start at RM 48, jewelry at RM 95, and bags at RM 225.';
+    : 'Preview mode — live AI is not connected yet. No catalog items match that category and budget. Charms start at RM 48, jewelry at RM 35, and bags at RM 150.';
    return Response.json({reply,demo:true},{headers});
   }
   const ai=new GoogleGenAI({
