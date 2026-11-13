@@ -287,7 +287,22 @@
     </section>
   </div>
   <footer>Coscolin · House of Design <span>Prices in Malaysian Ringgit (MYR).</span></footer>
-  <dialog id="bag-dialog" aria-labelledby="bag-title"><div class="panel-head"><h2 id="bag-title">Your shopping bag</h2><button data-close="bag-dialog" aria-label="Close shopping bag">&times;</button></div><div id="bag-items"></div><p id="bag-status" role="status"></p><div class="bag-total">Subtotal <strong id="bag-total">RM 0</strong></div><p class="small-note">Your selection is saved in this browser’s bag. Online payment is not available yet.</p><button class="add-btn" data-close="bag-dialog">Continue shopping</button></dialog>
+  <dialog id="bag-dialog" aria-labelledby="bag-title"><div class="panel-head"><h2 id="bag-title">Your shopping bag</h2><button data-close="bag-dialog" aria-label="Close shopping bag">&times;</button></div><div id="bag-items"></div><p id="bag-status" role="status"></p><div class="bag-total">Subtotal <strong id="bag-total">RM 0</strong></div><section class="vip-waitlist" aria-labelledby="vip-title">
+      <p class="campaign-kicker">A little ahead of the crowd</p><h2 id="vip-title">Join the VIP waiting list</h2>
+      <p class="small-note">Choose your pieces and leave your email. Vidal will contact you about availability and how to purchase. No payment is taken, and this does not reserve stock.</p>
+      <form name="vip-waitlist" id="vip-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="vip-waitlist">
+        <input type="hidden" name="subject" value="New Coscolin VIP purchase request (%{submissionId})">
+        <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label for="vip-name">Your name</label><input id="vip-name" name="name" autocomplete="name" maxlength="120" required>
+        <label for="vip-email">Email address</label><input id="vip-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+        <label for="vip-notes">Preferences or questions (optional)</label><textarea id="vip-notes" name="notes" rows="3" maxlength="2000"></textarea>
+        <input type="hidden" name="selection"><input type="hidden" name="subtotal"><input type="hidden" name="language">
+        <label class="vip-consent"><input type="checkbox" name="consent" value="Contact me about this purchase request" required><span>I agree to be contacted by email about this purchase request.</span></label>
+        <button class="add-btn" id="vip-submit" type="submit" disabled>Join the VIP waiting list</button>
+        <p class="small-note" id="vip-status" role="status" aria-live="polite">Add a piece to your bag to join the waiting list.</p>
+      </form>
+    </section><button class="add-btn" data-close="bag-dialog">Continue shopping</button></dialog>
   <button id="open-chat" class="chat-launcher" aria-controls="chat-dialog">Ask Coscolin <span>+</span></button>
   <dialog id="chat-dialog" aria-labelledby="chat-title"><div class="panel-head"><div><p class="campaign-kicker">Your styling companion</p><h2 id="chat-title">Ask Coscolin</h2></div><button data-close="chat-dialog" aria-label="Close assistant">&times;</button></div><div id="messages" role="log" aria-live="polite"><p class="message assistant" data-greeting>Looking for a bag, a charm, or a gift? Tell me your style and budget in RM.</p></div><form id="chat-form"><label for="chat-input">Your message</label><div class="chat-entry"><input id="chat-input" maxlength="1200" required placeholder="A gift under RM 100…"><button class="add-btn" type="submit">Send</button></div></form></dialog>
   <script type="module" src="/shop.mjs"></script>
