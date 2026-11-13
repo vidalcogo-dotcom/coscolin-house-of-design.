@@ -81,3 +81,19 @@ html[lang="zh-Hant"] .hero-intro > p:not(.campaign-kicker) { font-family: 'Noto 
   .shop-nav { gap: .6rem 1rem; }
   html[lang="zh-Hant"] .hero-intro > p:not(.campaign-kicker) { font-size: clamp(1.5rem, 6vw, 2.2rem); }
 }
+
+/* An editorial portrait and biography, set apart from the collection. */
+.designer { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); gap: clamp(2rem, 7vw, 7rem); align-items: center; margin: 6rem 0; padding: 4rem 0; border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); }
+.designer-portrait { margin: 0; }
+.designer-portrait img { display: block; width: 100%; height: auto; }
+.designer-portrait figcaption { margin-top: 1rem; font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+.designer-copy { max-width: 470px; }
+.designer-copy h2 { font-size: clamp(2.4rem, 4vw, 4rem); font-weight: 400; line-height: 1.1; margin-bottom: 1.5rem; }
+.designer-copy .designer-name { font-style: italic; font-size: 1.3rem; margin-bottom: 1.8rem; color: var(--text-main); }
+.designer-copy > p:not(.campaign-kicker):not(.designer-name) { font-size: 1.05rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.2rem; }
+#designer-title { scroll-margin-top: 2rem; }
+@media (max-width: 700px) {
+  .designer { grid-template-columns: 1fr; gap: 2rem; margin: 3rem 0; padding: 2rem 0; }
+  .designer-portrait { width: min(100%, 400px); margin: 0 auto; }
+  .designer-copy { max-width: none; }
+}
