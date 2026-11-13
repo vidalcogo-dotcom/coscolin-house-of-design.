@@ -248,7 +248,7 @@
   <!-- Brand Script Header -->
   <header class="brand-header">
     <a href="/" class="brand-logo-container" aria-label="Coscolin home"><img class="brand-logo-svg" src="/images/coscolin-logo-script.png" width="2151" height="731" alt="Coscolin House of Design"></a>
-    <nav class="shop-nav" aria-label="Main navigation"><a href="#collections">Collection</a><a href="#style-title">Our world</a><button id="open-bag" type="button">Shopping bag <span id="bag-count">0</span></button></nav>
+    <nav class="shop-nav" aria-label="Main navigation"><a href="#collections">Collection</a><a href="#style-title">Our world</a><label class="language-picker"><span class="visually-hidden">Language</span><select id="language-select" aria-label="Language"><option value="en" data-language-option lang="en">English</option><option value="es" data-language-option lang="es">Español</option><option value="zh-Hant" data-language-option lang="zh-Hant">繁體中文</option></select></label><button id="open-bag" type="button">Shopping bag <span id="bag-count">0</span></button></nav>
   </header>
 
 
@@ -285,7 +285,7 @@
   <footer>Coscolin · House of Design <span>Prices in Malaysian Ringgit (MYR).</span></footer>
   <dialog id="bag-dialog" aria-labelledby="bag-title"><div class="panel-head"><h2 id="bag-title">Your shopping bag</h2><button data-close="bag-dialog" aria-label="Close shopping bag">&times;</button></div><div id="bag-items"></div><p id="bag-status" role="status"></p><div class="bag-total">Subtotal <strong id="bag-total">RM 0</strong></div><p class="small-note">Your selection is saved in this browser’s bag. Online payment is not available yet.</p><button class="add-btn" data-close="bag-dialog">Continue shopping</button></dialog>
   <button id="open-chat" class="chat-launcher" aria-controls="chat-dialog">Ask Coscolin <span>+</span></button>
-  <dialog id="chat-dialog" aria-labelledby="chat-title"><div class="panel-head"><div><p class="campaign-kicker">Your styling companion</p><h2 id="chat-title">Ask Coscolin</h2></div><button data-close="chat-dialog" aria-label="Close assistant">&times;</button></div><div id="messages" role="log" aria-live="polite"><p class="message assistant">Looking for a bag, a charm, or a gift? Tell me your style and budget in RM.</p></div><form id="chat-form"><label for="chat-input">Your message</label><div class="chat-entry"><input id="chat-input" maxlength="1200" required placeholder="A gift under RM 100…"><button class="add-btn" type="submit">Send</button></div></form></dialog>
+  <dialog id="chat-dialog" aria-labelledby="chat-title"><div class="panel-head"><div><p class="campaign-kicker">Your styling companion</p><h2 id="chat-title">Ask Coscolin</h2></div><button data-close="chat-dialog" aria-label="Close assistant">&times;</button></div><div id="messages" role="log" aria-live="polite"><p class="message assistant" data-greeting>Looking for a bag, a charm, or a gift? Tell me your style and budget in RM.</p></div><form id="chat-form"><label for="chat-input">Your message</label><div class="chat-entry"><input id="chat-input" maxlength="1200" required placeholder="A gift under RM 100…"><button class="add-btn" type="submit">Send</button></div></form></dialog>
   <script type="module" src="/shop.mjs"></script>
   <script type="module" src="/landing.mjs"></script>
 </body>
