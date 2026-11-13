@@ -1,5 +1,12 @@
 // Shared storefront translations; product IDs, prices and customer messages stay intact.
 const translations = {
+  "About the designer": "關於設計師",
+  "The person behind Coscolin": "Coscolin 背後的設計師",
+  "For Vidal, creativity begins at home. His father’s craftsmanship and his mother’s work as a seamstress and designer shaped an early appreciation for detail and personal expression.": "對 Vidal 而言，創意始於家庭。父親的工藝，以及母親身為裁縫與設計師的工作，讓他從小便懂得欣賞細節與個人表達。",
+  "With family roots in Catalunya, his story brings together craft, clothing and a love of dance. That creative heritage lives on in the world of Coscolin.": "他的家族根源在加泰隆尼亞，故事交織著工藝、服裝與對舞蹈的熱愛。這份創意傳承，在 Coscolin 的世界中延續。",
+  "Discover the pieces ↑": "探索設計作品 ↑",
+  "Portrait of designer Vidal Coscolin Gomez wearing a red shirt": "設計師 Vidal Coscolin Gomez 身穿紅色襯衫的肖像",
+
   "Collection": "商品系列",
   "Our world": "品牌故事",
   "Shopping bag": "購物袋",
@@ -84,6 +91,13 @@ const translations = {
   "Remove {name}": "移除{name}"
 };
 const spanish = {
+  "About the designer": "Sobre el diseñador",
+  "The person behind Coscolin": "La persona detrás de Coscolin",
+  "For Vidal, creativity begins at home. His father’s craftsmanship and his mother’s work as a seamstress and designer shaped an early appreciation for detail and personal expression.": "Para Vidal, la creatividad empieza en casa. El oficio artesanal de su padre y el trabajo de su madre como costurera y diseñadora despertaron desde pequeño su sensibilidad por los detalles y la expresión personal.",
+  "With family roots in Catalunya, his story brings together craft, clothing and a love of dance. That creative heritage lives on in the world of Coscolin.": "Con raíces familiares en Catalunya, su historia reúne la artesanía, la moda y el amor por el baile. Esa herencia creativa sigue viva en el universo de Coscolin.",
+  "Discover the pieces ↑": "Descubre las piezas ↑",
+  "Portrait of designer Vidal Coscolin Gomez wearing a red shirt": "Retrato del diseñador Vidal Coscolin Gomez con una camisa roja",
+
   "Collection": "Colección",
   "Our world": "Nuestro mundo",
   "Shopping bag": "Bolsa de compra",
@@ -167,7 +181,7 @@ const spanish = {
   "Increase {name} quantity": "Aumentar cantidad de {name}",
   "Remove {name}": "Eliminar {name}"
 };
-let language = 'en';
+let language = 'es';
 try { const saved = localStorage.getItem('coscolin-language'); if (['en', 'es', 'zh-Hant'].includes(saved)) language = saved; } catch {}
 export const getLanguage = () => language;
 export function t(text, values = {}) {
