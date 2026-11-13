@@ -26,7 +26,8 @@ header.brand-header {
   background: #b4a591;
 }
 .hero-visual { position: absolute; inset: 0; overflow: hidden; z-index: -2; }
-.hero-visual .campaign-image { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: 45% center; animation: sunlit-drift 18s ease-in-out infinite alternate; }
+/* Anchor the photograph and its zoom to the top so Laura's head stays visible. */
+.hero-visual .campaign-image { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: 45% top; transform-origin: 53% top; animation: sunlit-drift 18s ease-in-out infinite alternate; }
 .hero-layout::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(90deg, transparent 48%, #25271f85 100%), linear-gradient(0deg, #25271f66, transparent 24%); }
 .hero-intro { justify-self: end; position: relative; width: 36%; padding: 3rem 3vw 5rem 1rem; color: #fffaf0; text-align: center; text-shadow: 0 2px 18px #25271f50; }
 .hero-intro h1 { font-family: 'Coscolin Script', cursive; font-size: clamp(3.6rem, 5.8vw, 6.5rem); line-height: 1.15; font-weight: 400; letter-spacing: 0; margin-bottom: 1.2rem; }
@@ -47,7 +48,7 @@ header.brand-header {
 .everyday-copy > p:not(.campaign-kicker) { color: var(--text-muted); line-height: 1.7; }
 .everyday-copy .campaign-link { display: inline-block; }
 .archive.everyday img { display: block; width: 100%; height: auto; margin-top: 0; }
-@keyframes sunlit-drift { from { transform: scale(1); } to { transform: scale(1.09) translate3d(-1%, .5%, 0); } }
+@keyframes sunlit-drift { from { transform: scale(1); } to { transform: scale(1.025); } }
 @media (max-width: 700px) {
   .everyday { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 2rem; }
   header.brand-header { padding: 1rem 1rem .8rem; gap: .6rem; }
@@ -56,7 +57,7 @@ header.brand-header {
   .shop-nav a { display: inline-block; }
   .hero-layout { min-height: 680px; min-height: max(640px, calc(100svh - 180px)); align-items: end; }
   .hero-visual { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .hero-visual .campaign-image { object-position: 47% center; }
+  .hero-visual .campaign-image { object-position: 53% top; }
   .hero-layout::after { background: linear-gradient(0deg, #25271fd9, #25271f55 28%, transparent 55%); }
   .hero-intro { justify-self: center; width: 100%; padding: 2rem 1.5rem 5.5rem; }
   .hero-intro h1 { font-size: clamp(3.7rem, 13vw, 5rem); margin-bottom: .6rem; }
