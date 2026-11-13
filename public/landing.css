@@ -42,8 +42,14 @@ header.brand-header {
 .motion-paused .campaign-image { animation-play-state: paused; }
 .campaign-copy { margin: 0 auto; max-width: 1200px; padding: 2.5rem 1rem; }
 #collections, #style-title { scroll-margin-top: 2rem; }
+.everyday { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: clamp(2rem, 5vw, 5rem); padding-top: 3rem; border-top: 1px solid var(--card-border); }
+.everyday-copy { max-width: 350px; }
+.everyday-copy > p:not(.campaign-kicker) { color: var(--text-muted); line-height: 1.7; }
+.everyday-copy .campaign-link { display: inline-block; }
+.archive.everyday img { display: block; width: 100%; height: auto; margin-top: 0; }
 @keyframes sunlit-drift { from { transform: scale(1); } to { transform: scale(1.09) translate3d(-1%, .5%, 0); } }
 @media (max-width: 700px) {
+  .everyday { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 2rem; }
   header.brand-header { padding: 1rem 1rem .8rem; gap: .6rem; }
   .brand-logo-container { width: 260px; max-width: 100%; }
   .shop-nav { gap: 1.4rem; font-size: .57rem; }
