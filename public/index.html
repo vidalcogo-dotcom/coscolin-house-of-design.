@@ -240,18 +240,19 @@
     @media(max-width:700px){header.brand-header {padding:1rem;}.brand-logo-container {max-width:155px;}.shop-nav {gap:.6rem;}.shop-nav a {display:none;}.hero-layout {grid-template-columns:1fr;}.hero-intro {padding:2rem;}.campaign-image {max-height:620px;}.campaign-copy h2 {font-size:2rem;}.editorial {grid-template-columns:1fr 1fr;gap:.75rem;}.editorial>div {grid-column:1/-1;}.editorial img {height:340px;}.catalog-grid {gap:1.2rem;}.image-wrapper {height:420px;}footer {display:block;}footer span {display:block;margin-top:.5rem;}#chat-dialog {margin:auto 0 0 auto;}}
     @media(prefers-reduced-motion:reduce){* {transition:none!important;scroll-behavior:auto!important;}}
   </style>
+  <link rel="stylesheet" href="/landing.css">
 </head>
 <body>
 
   <!-- Brand Script Header -->
   <header class="brand-header">
-    <a href="/" class="brand-logo-container" aria-label="Coscolin home"><img class="brand-logo-svg" src="/images/coscolin-logo.png" width="900" height="308" alt="Coscolin House of Design"></a>
-    <nav class="shop-nav" aria-label="Main navigation"><a href="#collections">Shop collection</a><button id="open-bag" type="button">Shopping bag <span id="bag-count">0</span></button></nav>
+    <a href="/" class="brand-logo-container" aria-label="Coscolin home"><img class="brand-logo-svg" src="/images/coscolin-logo-thin.png" width="299" height="290" alt="Coscolin House of Design"></a>
+    <nav class="shop-nav" aria-label="Main navigation"><a href="#collections">Collection</a><a href="#style-title">Our world</a><button id="open-bag" type="button">Shopping bag <span id="bag-count">0</span></button></nav>
   </header>
 
 
   <section class="campaign" aria-labelledby="campaign-title">
-    <div class="hero-layout"><div class="hero-intro"><p class="campaign-kicker">The everyday, with character</p><h1 id="campaign-title">A little sea.<br>A little city.<br>All your own.</h1><p>Meet Terra Mare. Denim, rope handles, and room for the things that matter.</p><p class="hero-price">RM 245</p><button class="add-btn" data-add="terra">Add Terra Mare to bag</button><a class="campaign-link" href="#collections">Shop the collection &darr;</a></div><img class="campaign-image" src="/images/terra-mare-blue-tote.png" width="1024" height="1536" fetchpriority="high" alt="Woman carrying the Terra Mare denim tote outdoors in daylight"></div>
+    <div class="hero-layout" id="opening-scene"><div class="hero-intro"><p class="campaign-kicker">The everyday, with character</p><h1 id="campaign-title">A little sea.<br>A little city.<br>All your own.</h1><p>Meet Terra Mare. Denim, rope handles, and room for the things that matter.</p><p class="hero-price">RM 245</p><button class="add-btn" data-add="terra">Add Terra Mare to bag</button><a class="campaign-link" href="#collections">Shop the collection &darr;</a></div><div class="hero-visual"><img class="campaign-image" src="/images/terra-mare-blue-tote.png" width="1024" height="1536" fetchpriority="high" alt="Woman carrying the Terra Mare denim tote outdoors in daylight"></div><div class="scene-footer"><a href="#collections">Discover Coscolin <span aria-hidden="true">↓</span></a><button id="motion-toggle" type="button" aria-pressed="false" aria-controls="opening-scene">Pause motion</button></div></div>
     <div class="campaign-copy">
       <div><p class="campaign-kicker">Coscolin · House of Design</p><h2>Carry a little character.</h2></div>
       <div class="campaign-summary"><p>Bags, braided jewelry, and charms. Details that make the everyday your own.</p><a class="campaign-link" href="#collections">Explore the collection &darr;</a></div>
@@ -278,5 +279,6 @@
   <button id="open-chat" class="chat-launcher" aria-controls="chat-dialog">Ask Coscolin <span>+</span></button>
   <dialog id="chat-dialog" aria-labelledby="chat-title"><div class="panel-head"><div><p class="campaign-kicker">Your styling companion</p><h2 id="chat-title">Ask Coscolin</h2></div><button data-close="chat-dialog" aria-label="Close assistant">&times;</button></div><div id="messages" role="log" aria-live="polite"><p class="message assistant">Looking for a bag, a charm, or a gift? Tell me your style and budget in RM.</p></div><form id="chat-form"><label for="chat-input">Your message</label><div class="chat-entry"><input id="chat-input" maxlength="1200" required placeholder="A gift under RM 100…"><button class="add-btn" type="submit">Send</button></div></form></dialog>
   <script type="module" src="/shop.mjs"></script>
+  <script type="module" src="/landing.mjs"></script>
 </body>
 </html>
