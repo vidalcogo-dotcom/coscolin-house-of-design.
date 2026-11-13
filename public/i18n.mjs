@@ -1,5 +1,10 @@
 // Shared storefront translations; product IDs, prices and customer messages stay intact.
 const translations = {
+  'White, red, and gray cords with a peace-heart charm.': '白、紅與灰色繩編，搭配和平愛心吊飾。',
+  'White satin braid with an ornate silver-tone bead.': '白色緞面編繩，搭配精緻銀色珠飾。',
+  'White braid, green beads, and a silver-tone floral charm.': '白色編繩、綠色珠飾與銀色花形吊飾。',
+  'Black braid with a dark faceted floral centerpiece.': '黑色編繩，搭配深色切面花形主飾。',
+  'Tricolor braids with a gold-tone chain and bead accents.': '三色編繩，搭配金色鏈條與珠飾。',
   "About the designer": "關於設計師",
   "The person behind Coscolin": "Coscolin 背後的設計師",
   "For Vidal, creativity begins at home. His father’s craftsmanship and his mother’s work as a seamstress and designer shaped an early appreciation for detail and personal expression.": "對 Vidal 而言，創意始於家庭。父親的工藝，以及母親身為裁縫與設計師的工作，讓他從小便懂得欣賞細節與個人表達。",
@@ -27,7 +32,7 @@ const translations = {
   "Bags & Totes": "包袋與托特包",
   "Bag Charms": "包袋吊飾",
   "Jewelry": "飾品",
-  "Bag charms from RM 48 · Jewelry up to RM 125 · Bags up to RM 250": "包袋吊飾 RM 48 起 · 飾品最高 RM 125 · 包袋最高 RM 250",
+  "Bag charms from RM 48 · Jewelry from RM 35 · Bags up to RM 245": "包袋吊飾 RM 48 起 · 飾品 RM 35 起 · 包袋最高 RM 245",
   "Coscolin catalog": "Coscolin 商品目錄",
   "Worn your way": "穿出你的風格",
   "Small details.": "細膩小節。",
@@ -91,6 +96,11 @@ const translations = {
   "Remove {name}": "移除{name}"
 };
 const spanish = {
+  'White, red, and gray cords with a peace-heart charm.': 'Cordones blancos, rojos y grises con un colgante de corazón y paz.',
+  'White satin braid with an ornate silver-tone bead.': 'Trenza de satén blanco con una cuenta adornada de tono plateado.',
+  'White braid, green beads, and a silver-tone floral charm.': 'Trenza blanca, cuentas verdes y un colgante floral de tono plateado.',
+  'Black braid with a dark faceted floral centerpiece.': 'Trenza negra con un centro floral oscuro y facetado.',
+  'Tricolor braids with a gold-tone chain and bead accents.': 'Trenzas tricolores con cadena dorada y detalles de cuentas.',
   "About the designer": "Sobre el diseñador",
   "The person behind Coscolin": "La persona detrás de Coscolin",
   "For Vidal, creativity begins at home. His father’s craftsmanship and his mother’s work as a seamstress and designer shaped an early appreciation for detail and personal expression.": "Para Vidal, la creatividad empieza en casa. El oficio artesanal de su padre y el trabajo de su madre como costurera y diseñadora despertaron desde pequeño su sensibilidad por los detalles y la expresión personal.",
@@ -118,7 +128,7 @@ const spanish = {
   "Bags & Totes": "Bolsos y totes",
   "Bag Charms": "Colgantes para bolsos",
   "Jewelry": "Joyería",
-  "Bag charms from RM 48 · Jewelry up to RM 125 · Bags up to RM 250": "Colgantes desde RM 48 · Joyería hasta RM 125 · Bolsos hasta RM 250",
+  "Bag charms from RM 48 · Jewelry from RM 35 · Bags up to RM 245": "Colgantes desde RM 48 · Joyería desde RM 35 · Bolsos hasta RM 245",
   "Coscolin catalog": "Catálogo de Coscolin",
   "Worn your way": "A tu manera",
   "Small details.": "Pequeños detalles.",
