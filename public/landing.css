@@ -97,3 +97,14 @@ html[lang="zh-Hant"] .hero-intro > p:not(.campaign-kicker) { font-family: 'Noto 
   .designer-portrait { width: min(100%, 400px); margin: 0 auto; }
   .designer-copy { max-width: none; }
 }
+
+.vip-waitlist { border-top: 1px solid var(--card-border); padding-top: 1.6rem; margin: 1.5rem 0; }
+.vip-waitlist h2 { font-size: 1.8rem; font-weight: 400; line-height: 1.15; }
+#vip-form > label { display: block; font-size: .8rem; margin: 1rem 0 .4rem; }
+#vip-form > input:not([type="hidden"]), #vip-form textarea { width: 100%; box-sizing: border-box; padding: .8rem; border: 1px solid var(--card-border); background: #fffdf8; color: var(--text-main); font: inherit; }
+#vip-form textarea { resize: vertical; }
+#vip-form .vip-consent { display: flex; align-items: flex-start; gap: .65rem; line-height: 1.5; margin: 1.2rem 0; }
+.vip-consent input { flex: 0 0 auto; margin-top: .25rem; accent-color: #394631; }
+#vip-submit { width: 100%; }
+#vip-form :focus-visible { outline: 2px solid #556249; outline-offset: 3px; }
+#vip-status { line-height: 1.5; }

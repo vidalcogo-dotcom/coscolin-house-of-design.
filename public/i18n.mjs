@@ -1,5 +1,17 @@
 // Shared storefront translations; product IDs, prices and customer messages stay intact.
 const translations = {
+  "A little ahead of the crowd": "搶先一步",
+  "Join the VIP waiting list": "加入 VIP 候購名單",
+  "Choose your pieces and leave your email. Vidal will contact you about availability and how to purchase. No payment is taken, and this does not reserve stock.": "選好喜愛的商品並留下電郵。Vidal 將聯絡你確認供貨及購買方式。不會收取款項，亦不保留庫存。",
+  "Your name": "你的姓名",
+  "Email address": "電子郵件地址",
+  "Preferences or questions (optional)": "偏好或問題（選填）",
+  "I agree to be contacted by email about this purchase request.": "我同意透過電郵接收與此購買意向相關的聯絡。",
+  "Add a piece to your bag to join the waiting list.": "請先將商品加入購物袋，再加入候購名單。",
+  "Sending your request…": "正在傳送你的申請⋯",
+  "You’re on the VIP waiting list. Vidal will contact you by email about your selection. No payment has been taken.": "你已加入 VIP 候購名單。Vidal 將透過電郵聯絡你確認所選商品。尚未收取任何款項。",
+  "Your request could not be sent. Please try again, or email vidalcogo@gmail.com.": "無法傳送申請。請再試一次，或寄信至 vidalcogo@gmail.com。",
+
   'White, red, and gray cords with a peace-heart charm.': '白、紅與灰色繩編，搭配和平愛心吊飾。',
   'White satin braid with an ornate silver-tone bead.': '白色緞面編繩，搭配精緻銀色珠飾。',
   'White braid, green beads, and a silver-tone floral charm.': '白色編繩、綠色珠飾與銀色花形吊飾。',
@@ -96,6 +108,18 @@ const translations = {
   "Remove {name}": "移除{name}"
 };
 const spanish = {
+  "A little ahead of the crowd": "Un paso por delante",
+  "Join the VIP waiting list": "Únete a la lista de espera VIP",
+  "Choose your pieces and leave your email. Vidal will contact you about availability and how to purchase. No payment is taken, and this does not reserve stock.": "Elige tus piezas y deja tu correo. Vidal te contactará sobre disponibilidad y cómo comprar. No se realiza ningún pago ni se reserva stock.",
+  "Your name": "Tu nombre",
+  "Email address": "Correo electrónico",
+  "Preferences or questions (optional)": "Preferencias o preguntas (opcional)",
+  "I agree to be contacted by email about this purchase request.": "Acepto que me contacten por correo sobre esta solicitud de compra.",
+  "Add a piece to your bag to join the waiting list.": "Añade una pieza a tu bolsa para unirte a la lista de espera.",
+  "Sending your request…": "Enviando tu solicitud…",
+  "You’re on the VIP waiting list. Vidal will contact you by email about your selection. No payment has been taken.": "Ya estás en la lista de espera VIP. Vidal te contactará por correo sobre tu selección. No se ha realizado ningún pago.",
+  "Your request could not be sent. Please try again, or email vidalcogo@gmail.com.": "No se pudo enviar tu solicitud. Inténtalo de nuevo o escribe a vidalcogo@gmail.com.",
+
   'White, red, and gray cords with a peace-heart charm.': 'Cordones blancos, rojos y grises con un colgante de corazón y paz.',
   'White satin braid with an ornate silver-tone bead.': 'Trenza de satén blanco con una cuenta adornada de tono plateado.',
   'White braid, green beads, and a silver-tone floral charm.': 'Trenza blanca, cuentas verdes y un colgante floral de tono plateado.',
@@ -206,7 +230,7 @@ function translatePage() {
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   while (walker.nextNode()) {
     const node = walker.currentNode;
-    if (node.parentElement.closest('script, style, #catalog, #bag-items, #bag-status, #messages .user, #messages .assistant:not([data-greeting]), [data-language-option]')) continue;
+    if (node.parentElement.closest('script, style, #catalog, #bag-items, #bag-status, #vip-status, #messages .user, #messages .assistant:not([data-greeting]), [data-language-option]')) continue;
     if (!originals.has(node)) originals.set(node, node.textContent);
     const original = originals.get(node);
     const trimmed = original.trim();
