@@ -8,7 +8,7 @@ header.brand-header {
   margin-bottom: 0;
   background: #f4eee5;
 }
-.brand-logo-container { width: 154px; max-width: none; }
+.brand-logo-container { width: 360px; max-width: 100%; }
 .brand-logo-svg { width: 100%; max-width: none; mix-blend-mode: multiply; }
 .shop-nav { justify-content: center; flex-wrap: wrap; gap: 2.4rem; font-size: .65rem; letter-spacing: .13em; text-transform: uppercase; }
 .shop-nav a { display: inline-block; text-decoration: none; padding: .75rem 0; }
@@ -45,7 +45,7 @@ header.brand-header {
 @keyframes sunlit-drift { from { transform: scale(1); } to { transform: scale(1.09) translate3d(-1%, .5%, 0); } }
 @media (max-width: 700px) {
   header.brand-header { padding: 1rem 1rem .8rem; gap: .6rem; }
-  .brand-logo-container { width: 120px; max-width: none; }
+  .brand-logo-container { width: 260px; max-width: 100%; }
   .shop-nav { gap: 1.4rem; font-size: .57rem; }
   .shop-nav a { display: inline-block; }
   .hero-layout { display: flex; flex-direction: column; min-height: 0; }
