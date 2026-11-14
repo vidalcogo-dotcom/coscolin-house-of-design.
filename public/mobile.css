@@ -12,3 +12,17 @@ header.brand-header{background:#0b0b0bf5;padding:1rem;gap:.5rem;border-bottom:1p
 dialog{padding:1.2rem 1.2rem calc(1.2rem + env(safe-area-inset-bottom));z-index:20}#chat-dialog{height:90dvh}.message{background:#252525}.message.user{background:#333}.chat-entry input{font-size:16px}.quantity{gap:.5rem;flex-wrap:wrap}.quantity button{min-width:36px;min-height:36px}#vip-form>input:not([type=hidden]),#vip-form textarea{background:#202020;color:#f3f3f3;font-size:16px}.designer-copy>p:not(.campaign-kicker):not(.designer-name){color:#aaa}.install-help{padding:1.5rem 1rem}.language-picker select{font-size:16px}
 }
 @media(display-mode:standalone){.install-help{display:none}}
+.app-download-banner{display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:1rem 4vw;border-block:1px solid var(--card-border);font:12px/1.6 Verdana,sans-serif;color:var(--text-muted)}
+[data-download-app]{cursor:pointer;background:transparent;color:var(--text-main);border:1px solid var(--card-border);padding:.8rem 1rem;font:12px/1.5 Verdana,sans-serif;letter-spacing:.03em}
+[data-download-app]:hover{border-color:var(--text-main)}
+[data-download-app]:focus-visible,.download-platform summary:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+#download-dialog{width:min(520px,calc(100% - 2rem));max-height:85dvh;box-sizing:border-box;overflow-y:auto}
+#download-dialog p,#download-dialog li{font:13px/1.8 Verdana,sans-serif;color:var(--text-muted)}
+#download-dialog a{color:var(--text-main);text-underline-offset:3px;overflow-wrap:anywhere}
+.download-icon{display:block;border-radius:14px;margin:1rem 0}
+.download-platform{border-block-start:1px solid var(--card-border);padding:1rem 0}
+.download-platform summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;font:16px/1.6 Verdana,sans-serif;list-style:none;min-height:44px}
+.download-platform summary::-webkit-details-marker{display:none}.download-platform[open] summary span{transform:rotate(45deg)}
+.download-platform ol{padding-left:1.4rem}.download-platform li{padding:.3rem 0}
+@media(max-width:700px){.app-download-banner{justify-content:space-between;gap:.5rem;padding:1rem}.app-download-banner>span{font-size:11px}}
+@media(display-mode:standalone){.app-download-banner{display:none}}
