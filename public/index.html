@@ -4,10 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0b0b">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Coscolin">
-  <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="/icons/icon-180.png">
   <link rel="icon" type="image/png" href="/icons/icon-192.png">
   <title>Coscolin House of Design</title>
@@ -256,7 +252,7 @@
   <!-- Brand Script Header -->
   <header class="brand-header">
     <a href="/" class="brand-logo-container" aria-label="Coscolin home"><img class="brand-logo-svg" src="/images/coscolin-logo-script.png" width="2151" height="731" alt="Coscolin House of Design"></a>
-    <nav class="shop-nav" aria-label="Main navigation"><a href="#collections">Collection</a><a href="#designer-title">About the designer</a><label class="language-picker"><span class="visually-hidden">Language</span><select id="language-select" aria-label="Language"><option value="es" data-language-option lang="es" selected>Español</option><option value="en" data-language-option lang="en">English</option><option value="zh-Hant" data-language-option lang="zh-Hant">繁體中文</option></select></label><button id="open-bag" type="button">Shopping bag <span id="bag-count">0</span></button></nav>
+    <nav class="shop-nav" aria-label="Main navigation"><a href="#collections">Collection</a><a href="#designer-title">About the designer</a><a href="/app/" class="app-entry">Open the app</a><label class="language-picker"><span class="visually-hidden">Language</span><select id="language-select" aria-label="Language"><option value="es" data-language-option lang="es" selected>Español</option><option value="en" data-language-option lang="en">English</option><option value="zh-Hant" data-language-option lang="zh-Hant">繁體中文</option></select></label><button id="open-bag" type="button">Shopping bag <span id="bag-count">0</span></button></nav>
   </header>
 
 
@@ -272,7 +268,7 @@
     </div>
   </section>
 
-  <div class="app-download-banner"><span>Keep Coscolin close.</span><button type="button" data-download-app aria-haspopup="dialog" aria-controls="download-dialog">Download our app <span aria-hidden="true">↗</span></button></div>
+  <div class="app-download-banner"><span>Keep Coscolin close.</span><a href="/app/">Open the Coscolin app <span aria-hidden="true">↗</span></a></div>
 
   <div class="container" id="collections">
 
@@ -315,36 +311,6 @@
     </section><button class="add-btn" data-close="bag-dialog">Continue shopping</button></dialog>
   <button id="open-chat" class="chat-launcher" aria-controls="chat-dialog">Ask Coscolin <span>+</span></button>
   <dialog id="chat-dialog" aria-labelledby="chat-title"><div class="panel-head"><div><p class="campaign-kicker">Your styling companion</p><h2 id="chat-title">Ask Coscolin</h2></div><button data-close="chat-dialog" aria-label="Close assistant">&times;</button></div><div id="messages" role="log" aria-live="polite"><p class="message assistant" data-greeting>Looking for a bag, a charm, or a gift? Tell me your style and budget in RM.</p></div><form id="chat-form"><label for="chat-input">Your message</label><div class="chat-entry"><input id="chat-input" maxlength="1200" required placeholder="A gift under RM 100…"><button class="add-btn" type="submit">Send</button></div></form></dialog>
-  <nav class="app-nav" aria-label="App navigation">
-    <a href="#opening-scene"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 3l9 7M5 9v12h5v-7h4v7h5V9"/></svg>Shop</a>
-    <a href="#collections"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h16"/></svg>Catalog</a>
-    <button type="button" id="app-bag"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l1 13H4L5 8zm3 0V6a4 4 0 0 1 8 0v2"/></svg>Bag</button>
-    <button type="button" id="app-concierge"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11a9 8 0 0 1-9 8c-2 0-3-.4-4-1L3 21l1-6a8 8 0 0 1-1-4 9 8 0 0 1 18 0Z"/></svg>Concierge</button>
-  </nav>
-  <section class="install-help" aria-label="Download our app">
-    <img src="/icons/icon-192.png" width="48" height="48" alt="Coscolin C">
-    <div><strong>Coscolin, on your home screen</strong><p>Your favorite pieces, a tap away.</p><button type="button" data-download-app aria-haspopup="dialog" aria-controls="download-dialog">Download our app</button></div>
-  </section>
-  <dialog id="download-dialog" aria-labelledby="download-title" aria-describedby="download-description">
-    <div class="panel-head"><h2 id="download-title">Download our app</h2><button type="button" data-close="download-dialog" aria-label="Close app instructions">&times;</button></div>
-    <img class="download-icon" src="/icons/icon-192.png" width="64" height="64" alt="Coscolin C app icon">
-    <p id="download-description">Add Coscolin to your home screen, directly from our website. No app store download is needed.</p>
-    <details class="download-platform">
-      <summary>For iPhone <span aria-hidden="true">+</span></summary>
-      <div><p>Open <a href="https://coscolin-house-of-design.netlify.app/" target="_blank" rel="noopener">the Coscolin website</a> in <strong>Safari</strong> on your iPhone.</p>
-      <ol><li>Tap the <strong>Share</strong> button (the square with an upward arrow). It may be inside the browser menu.</li><li>Scroll down and tap <strong>Add to Home Screen</strong>.</li><li>If shown, turn on <strong>Open as Web App</strong>, then tap <strong>Add</strong>.</li></ol>
-      <p>Look for the C icon on your home screen.</p></div>
-    </details>
-    <details class="download-platform">
-      <summary>For Android <span aria-hidden="true">+</span></summary>
-      <div><p>Open <a href="https://coscolin-house-of-design.netlify.app/" target="_blank" rel="noopener">the Coscolin website</a> in <strong>Chrome</strong> on your Android phone.</p>
-      <ol><li>Tap Chrome’s <strong>three-dot menu</strong>.</li><li>Choose <strong>Add to Home screen</strong> or <strong>Install app</strong>.</li><li>Tap <strong>Install</strong> or <strong>Add</strong> to confirm.</li></ol>
-      <button type="button" id="install-app" hidden>Install Coscolin</button>
-      <p id="install-status" role="status"></p></div>
-    </details>
-    <p class="small-note">Already on your phone? Open the C icon. Shopping requires an internet connection.</p>
-  </dialog>
-  <script type="module" src="/app.mjs"></script>
   <script type="module" src="/shop.mjs"></script>
   <script type="module" src="/landing.mjs"></script>
 </body>

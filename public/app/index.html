@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f3eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Coscolin">
+  <link rel="manifest" href="/app/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/icon-180.png">
+  <link rel="icon" type="image/png" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/app/app.css">
+  <title>Coscolin App</title>
+</head>
+<body>
+  <header class="app-header">
+    <a class="app-brand" href="/app/" aria-label="Coscolin home">
+      <img src="/images/coscolin-logo-script.png" alt="" width="2151" height="731">
+      <span>House of Design</span>
+    </a>
+    <div class="app-actions">
+      <button type="button" class="install-trigger" data-download-app>Install</button>
+      <label class="language-picker"><span class="visually-hidden">Language</span><select id="language-select" aria-label="Language"><option value="es" data-language-option lang="es" selected>Español</option><option value="en" data-language-option lang="en">English</option><option value="zh-Hant" data-language-option lang="zh-Hant">繁體中文</option></select></label>
+      <button id="open-bag" class="bag-top" type="button" aria-label="Shopping bag">Bag <span id="bag-count">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="app-home" id="app-home-screen">
+      <p class="eyebrow">Coscolin · House of Design</p>
+      <h1>Carry a little character.</h1>
+      <p class="home-intro">Find your everyday piece in bags, braided jewelry, and charms made to feel like yours.</p>
+      <article class="feature-card">
+        <img src="/images/terra-mare-blue-tote.png" alt="Terra Mare blue denim tote with braided rope details" width="1000" height="1000">
+        <div class="feature-copy">
+          <p class="eyebrow">Featured piece</p>
+          <h2>Terra Mare Blue Tote</h2>
+          <p>Denim, rope handles, and an eye for detail.</p>
+          <div class="feature-actions"><strong id="featured-price">RM 245.00</strong><button class="primary-button" type="button" data-open-catalog>Explore</button></div>
+        </div>
+      </article>
+      <section class="quick-picks" aria-labelledby="quick-picks-title">
+        <div class="section-heading"><div><p class="eyebrow">Made for your day</p><h2 id="quick-picks-title">Browse by collection</h2></div></div>
+        <div class="quick-pick-list">
+          <button type="button" class="quick-pick" data-quick-filter="bags"><span>01</span><span>Bags &amp; totes</span><span aria-hidden="true">→</span></button>
+          <button type="button" class="quick-pick" data-quick-filter="charms"><span>02</span><span>Bag charms</span><span aria-hidden="true">→</span></button>
+          <button type="button" class="quick-pick" data-quick-filter="jewelry"><span>03</span><span>Jewelry</span><span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+      <a class="website-link" href="/">Visit the Coscolin website <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="app-catalog-screen" id="app-catalog-screen" aria-labelledby="app-catalog-title">
+      <div class="catalog-heading"><p class="eyebrow">The collection</p><h1 id="app-catalog-title">Find your piece.</h1><p>Explore the full collection, with current prices in Malaysian Ringgit.</p></div>
+      <nav class="filter-container" aria-label="Filter collections">
+        <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All Items</button>
+        <button type="button" class="filter-btn" data-filter="bags" aria-pressed="false">Bags &amp; Totes</button>
+        <button type="button" class="filter-btn" data-filter="charms" aria-pressed="false">Bag Charms</button>
+        <button type="button" class="filter-btn" data-filter="jewelry" aria-pressed="false">Jewelry</button>
+      </nav>
+      <div class="catalog-grid" id="catalog" role="list" aria-label="Coscolin catalog"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">Coscolin · House of Design <span>Prices in Malaysian Ringgit (MYR).</span></footer>
+
+  <dialog id="bag-dialog" aria-labelledby="bag-title">
+    <div class="panel-head"><h2 id="bag-title">Your shopping bag</h2><button data-close="bag-dialog" aria-label="Close shopping bag">&times;</button></div>
+    <div id="bag-items"></div><p id="bag-status" role="status"></p><div class="bag-total">Subtotal <strong id="bag-total">RM 0</strong></div>
+    <section class="vip-waitlist" aria-labelledby="vip-title">
+      <p class="eyebrow">A little ahead of the crowd</p><h2 id="vip-title">Join the VIP waiting list</h2>
+      <p class="small-note">Leave your email and Vidal will contact you about availability and how to purchase. No payment is taken, and this does not reserve stock.</p>
+      <form name="vip-waitlist" id="vip-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="vip-waitlist"><input type="hidden" name="subject" value="New Coscolin VIP purchase request (%{submissionId})">
+        <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label for="vip-name">Your name</label><input id="vip-name" name="name" autocomplete="name" maxlength="120" required>
+        <label for="vip-email">Email address</label><input id="vip-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+        <label for="vip-notes">Preferences or questions (optional)</label><textarea id="vip-notes" name="notes" rows="3" maxlength="2000"></textarea>
+        <input type="hidden" name="selection"><input type="hidden" name="subtotal"><input type="hidden" name="language">
+        <label class="vip-consent"><input type="checkbox" name="consent" value="Contact me about this purchase request" required><span>I agree to be contacted by email about this purchase request.</span></label>
+        <button class="primary-button" id="vip-submit" type="submit" disabled>Join the VIP waiting list</button>
+        <p class="small-note" id="vip-status" role="status" aria-live="polite">Add a piece to your bag to join the waiting list.</p>
+      </form>
+    </section>
+    <button class="secondary-button" data-close="bag-dialog">Continue shopping</button>
+  </dialog>
+
+  <button id="open-chat" class="chat-launcher" aria-controls="chat-dialog">Ask Coscolin <span>+</span></button>
+  <dialog id="chat-dialog" aria-labelledby="chat-title">
+    <div class="panel-head"><div><p class="eyebrow">Your styling companion</p><h2 id="chat-title">Ask Coscolin</h2></div><button data-close="chat-dialog" aria-label="Close assistant">&times;</button></div>
+    <div id="messages" role="log" aria-live="polite"><p class="message assistant" data-greeting>Looking for a bag, a charm, or a gift? Tell me your style and budget in RM.</p></div>
+    <form id="chat-form"><label for="chat-input">Your message</label><div class="chat-entry"><input id="chat-input" maxlength="1200" required placeholder="A gift under RM 100…"><button class="primary-button" type="submit">Send</button></div></form>
+  </dialog>
+
+  <nav class="app-nav" aria-label="App navigation">
+    <button type="button" class="active" data-screen="shop"><span aria-hidden="true">⌂</span>Shop</button>
+    <button type="button" data-screen="catalog"><span aria-hidden="true">▦</span>Catalog</button>
+    <button type="button" id="app-bag"><span class="nav-icon" aria-hidden="true">▱</span><span id="app-bag-count" class="app-bag-count" aria-hidden="true" hidden></span>Bag</button>
+    <button type="button" id="app-concierge"><span aria-hidden="true">☏</span>Concierge</button>
+  </nav>
+
+  <dialog id="download-dialog" aria-labelledby="download-title">
+    <div class="panel-head"><h2 id="download-title">Install Coscolin</h2><button data-close="download-dialog" aria-label="Close install instructions">&times;</button></div>
+    <p>Add the Coscolin app to your phone’s home screen for a full-screen shopping experience.</p>
+    <details class="download-platform"><summary>For iPhone</summary><p>Open this page in Safari, tap Share, then choose “Add to Home Screen”.</p></details>
+    <details class="download-platform"><summary>For Android</summary><p>Open this page in Chrome, tap the three-dot menu, then choose “Install app” or “Add to Home screen”.</p><button type="button" id="install-app" hidden>Install Coscolin</button><p id="install-status" role="status"></p></details>
+  </dialog>
+
+  <script type="module" src="/app.mjs"></script>
+  <script type="module" src="/shop.mjs"></script>
+  <script type="module" src="/app/app-shell.mjs"></script>
+</body>
+</html>
