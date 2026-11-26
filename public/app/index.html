@@ -19,7 +19,6 @@
       <img src="/images/coscolin-logo-script.png" alt="" width="2151" height="731">
     </a>
     <div class="app-actions">
-      <button type="button" class="install-trigger" data-download-app>Install</button>
       <label class="language-picker"><span class="visually-hidden">Language</span><select id="language-select" aria-label="Language"><option value="es" data-language-option lang="es" selected>Español</option><option value="en" data-language-option lang="en">English</option><option value="zh-Hant" data-language-option lang="zh-Hant">繁體中文</option></select></label>
       <button id="open-bag" class="bag-top" type="button" aria-label="Shopping bag">Bag <span id="bag-count">0</span></button>
     </div>
@@ -90,13 +89,6 @@
     <button type="button" id="app-bag"><span class="nav-icon" aria-hidden="true">▱</span><span id="app-bag-count" class="app-bag-count" aria-hidden="true" hidden></span>Bag</button>
     <button type="button" id="app-concierge"><span aria-hidden="true">☏</span>Concierge</button>
   </nav>
-
-  <dialog id="download-dialog" aria-labelledby="download-title">
-    <div class="panel-head"><h2 id="download-title">Install Coscolin</h2><button data-close="download-dialog" aria-label="Close install instructions">&times;</button></div>
-    <p>Add the Coscolin app to your phone’s home screen for a full-screen shopping experience.</p>
-    <details class="download-platform"><summary>For iPhone</summary><p>Open this page in Safari, tap Share, then choose “Add to Home Screen”.</p></details>
-    <details class="download-platform"><summary>For Android</summary><p>Open this page in Chrome, tap the three-dot menu, then choose “Install app” or “Add to Home screen”.</p><button type="button" id="install-app" hidden>Install Coscolin</button><p id="install-status" role="status"></p></details>
-  </dialog>
 
   <script type="module" src="/app.mjs"></script>
   <script type="module" src="/shop.mjs"></script>
