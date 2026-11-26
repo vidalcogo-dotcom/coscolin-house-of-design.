@@ -1,5 +1,3 @@
-import {products} from '../catalog.mjs';
-
 const app = document.body;
 const screenButtons = [...document.querySelectorAll('[data-screen]')];
 
@@ -24,7 +22,6 @@ for (const button of document.querySelectorAll('[data-quick-filter]')) {
     showScreen('catalog');
   });
 }
-document.querySelector('#featured-price').textContent = `RM ${products.find(product => product.id === 'terra').price.toFixed(2)}`;
 for (const button of document.querySelectorAll('#app-bag, #app-concierge')) {
   button.addEventListener('click', () => {
     for (const tab of document.querySelectorAll('.app-nav button')) {
