@@ -130,7 +130,9 @@ const translations = {
   "For iPhone": "iPhone 使用者",
   "Open this page in Safari, tap Share, then choose “Add to Home Screen”.": "在 Safari 開啟此頁面，點選「分享」，再選擇「加入主畫面」。",
   "For Android": "Android 使用者",
-  "Open this page in Chrome, tap the three-dot menu, then choose “Install app” or “Add to Home screen”.": "在 Chrome 開啟此頁面，點選三點選單，再選擇「安裝應用程式」或「加到主畫面」。"
+  "Open this page in Chrome, tap the three-dot menu, then choose “Install app” or “Add to Home screen”.": "在 Chrome 開啟此頁面，點選三點選單，再選擇「安裝應用程式」或「加到主畫面」。",
+  "Explore collection": "探索商品系列",
+  "Coscolin handmade gemstone jewelry and braided pendants arranged on natural stone": "Coscolin 手工寶石飾品與編織吊墜，陳列於天然石材上"
 };
 const spanish = {
   "A little ahead of the crowd": "Un paso por delante",
@@ -263,7 +265,9 @@ const spanish = {
   "For iPhone": "Para iPhone",
   "Open this page in Safari, tap Share, then choose “Add to Home Screen”.": "Abre esta página en Safari, toca Compartir y elige «Añadir a pantalla de inicio».",
   "For Android": "Para Android",
-  "Open this page in Chrome, tap the three-dot menu, then choose “Install app” or “Add to Home screen”.": "Abre esta página en Chrome, toca el menú de tres puntos y elige «Instalar app» o «Añadir a pantalla de inicio»."
+  "Open this page in Chrome, tap the three-dot menu, then choose “Install app” or “Add to Home screen”.": "Abre esta página en Chrome, toca el menú de tres puntos y elige «Instalar app» o «Añadir a pantalla de inicio».",
+  "Explore collection": "Explorar la colección",
+  "Coscolin handmade gemstone jewelry and braided pendants arranged on natural stone": "Joyas artesanales con piedras preciosas y colgantes trenzados de Coscolin sobre piedra natural"
 };
 let language = 'es';
 try { const saved = localStorage.getItem('coscolin-language'); if (['en', 'es', 'zh-Hant'].includes(saved)) language = saved; } catch {}
