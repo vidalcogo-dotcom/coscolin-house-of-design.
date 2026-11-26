@@ -1,4 +1,17 @@
 [build]
   publish = "public"
+  # Bundles the admin page's login library for the browser.
+  command = "npx esbuild admin-src/admin.mjs --bundle --format=esm --minify --target=es2020 --outfile=public/admin/admin.js"
 [functions]
   directory = "netlify/functions"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+[[headers]]
+  for = "/order"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+    Referrer-Policy = "no-referrer"
