@@ -1,3 +1,4 @@
+import { orderZh, orderEs } from './i18n-orders.mjs';
 // Shared storefront translations; product IDs, prices and customer messages stay intact.
 const translations = {
   "A little ahead of the crowd": "搶先一步",
@@ -269,6 +270,8 @@ const spanish = {
   "Explore collection": "Explorar la colección",
   "Coscolin handmade gemstone jewelry and braided pendants arranged on natural stone": "Joyas artesanales con piedras preciosas y colgantes trenzados de Coscolin sobre piedra natural"
 };
+Object.assign(translations, orderZh);
+Object.assign(spanish, orderEs);
 let language = 'es';
 try { const saved = localStorage.getItem('coscolin-language'); if (['en', 'es', 'zh-Hant'].includes(saved)) language = saved; } catch {}
 export const getLanguage = () => language;
@@ -279,19 +282,19 @@ export function t(text, values = {}) {
   return result;
 }
 const originals = new WeakMap();
-function translatePage() {
+export function translatePage() {
   document.documentElement.lang = language;
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   while (walker.nextNode()) {
     const node = walker.currentNode;
-    if (node.parentElement.closest('script, style, #catalog, #bag-items, #bag-status, #vip-status, #messages .user, #messages .assistant:not([data-greeting]), [data-language-option]')) continue;
+    if (node.parentElement.closest('script, style, [data-i18n-skip], #catalog, #bag-items, #bag-status, #vip-status, #messages .user, #messages .assistant:not([data-greeting]), [data-language-option]')) continue;
     if (!originals.has(node)) originals.set(node, node.textContent);
     const original = originals.get(node);
     const trimmed = original.trim();
     if (translations[trimmed]) node.textContent = original.replace(trimmed, t(trimmed));
   }
   document.querySelectorAll('[aria-label], [alt], [placeholder]').forEach(element => {
-    if (element.closest('#catalog, #bag-items')) return;
+    if (element.closest('#catalog, #bag-items, [data-i18n-skip]')) return;
     let attrs = originals.get(element);
     if (!attrs) { attrs = {}; originals.set(element, attrs); }
     for (const attr of ['aria-label', 'alt', 'placeholder']) {
@@ -300,7 +303,8 @@ function translatePage() {
       element.setAttribute(attr, t(attrs[attr]));
     }
   });
-  document.querySelector('#language-select').value = language;
+  const select = document.querySelector('#language-select');
+  if (select) select.value = language;
 }
 translatePage();
 document.querySelector('#language-select').addEventListener('change', event => {

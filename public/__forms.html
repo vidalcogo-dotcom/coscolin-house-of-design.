@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Forms</title></head>
+<body>
+<!-- Order notifications are sent to these Netlify Forms by the server, so Vidal receives an email for each order and payment. -->
+<form name="new-order" data-netlify="true" hidden>
+  <input type="hidden" name="form-name" value="new-order">
+  <input name="subject"><input name="order"><input name="name"><input name="email" type="email"><input name="phone">
+  <textarea name="address"></textarea><input name="delivery"><textarea name="items"></textarea><input name="subtotal">
+  <textarea name="notes"></textarea><input name="language"><input name="deadline"><input name="link">
+</form>
+<form name="payment-proof" data-netlify="true" hidden>
+  <input type="hidden" name="form-name" value="payment-proof">
+  <input name="subject"><input name="order"><input name="name"><input name="email" type="email"><input name="phone"><input name="link">
+</form>
+</body></html>

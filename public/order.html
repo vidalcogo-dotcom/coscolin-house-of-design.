@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f6f3eb">
+  <link rel="icon" type="image/png" href="/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="/icons/icon-180.png">
+  <link rel="stylesheet" href="/order.css">
+  <title>Your order · Coscolin</title>
+</head>
+<body class="order-page">
+  <header class="order-header">
+    <a href="/" class="order-brand" aria-label="Coscolin home"><img src="/images/coscolin-logo-script.png" width="2151" height="731" alt="Coscolin House of Design"></a>
+    <label class="language-picker"><span class="visually-hidden">Language</span><select id="language-select" aria-label="Language"><option value="es" data-language-option lang="es" selected>Español</option><option value="en" data-language-option lang="en">English</option><option value="zh-Hant" data-language-option lang="zh-Hant">繁體中文</option></select></label>
+  </header>
+  <main id="order-root" class="order-main" data-i18n-skip aria-live="polite">
+    <p class="order-loading">…</p>
+  </main>
+  <footer class="order-footer">Coscolin · House of Design <span>Prices in Malaysian Ringgit (MYR).</span></footer>
+  <script type="module" src="/order.mjs"></script>
+</body>
+</html>

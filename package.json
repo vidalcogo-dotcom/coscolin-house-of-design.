@@ -8,11 +8,14 @@
   "type": "commonjs",
   "dependencies": {
     "@google/genai": "^3.0.0",
+    "@netlify/blobs": "^11.1.12",
     "@netlify/database": "^2.0.3",
+    "@netlify/identity": "^2.0.1",
     "drizzle-orm": "^1.0.0-beta.22"
   },
   "devDependencies": {
-    "drizzle-kit": "^1.0.0-beta.22"
+    "drizzle-kit": "^1.0.0-beta.22",
+    "esbuild": "^0.25.12"
   },
   "private": true
 }
